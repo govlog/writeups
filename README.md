@@ -8,6 +8,8 @@ We are given a MIPS binary, which is probably a ransomware ( hint + filename ).
 routerlocker: ELF 32-bit MSB executable, MIPS, MIPS64 version 1 (SYSV), dynamically linked, interpreter /lib/ld.so.1, for GNU/Linux 2.6.26, BuildID[sha1]=b9720b983cafb2a111bbac302b4ead891019e600, not stripped
 ```
 
+# Decompile it !
+
 As I didn't knew anything in MIPS asm, and quite franckly, didn't have the time to learn a new arch, I used retdec.com to "decompile" the binary and started looking under the hood :
 
 
@@ -117,3 +119,5 @@ Good. Let's continue :
 
 
 We see a kind of "weird-crc-magickey-xor-sum" algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff on the stack to the v0 register. The decompiler didn't catch anything ...
+
+# Debug it !

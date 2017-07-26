@@ -22,13 +22,17 @@ Once cleaned a bit, we start to get a clear picture of the execution flow :
         wait(&stat_loc)
         return 0
 
-	# start of the forked process
+    # start of the forked process
 
-	.... "obf MIPS asm" to construct the filename string
-	.... (not catched by the "decompiler"
-	....
+    .... "obf MIPS asm" part 1 (construct the filename string)
+    .... (not catched by the "decompiler"
+    ....
 
     ptrace(0) # gdb will not like it
+
+    .... "obf MIPS asm" second part
+    .... (not catched by the "decompiler"
+    ....
 
     file_path = ???????
 
@@ -92,9 +96,9 @@ Good. Let's continue :
 
 
 ```
-		.... big blob of "obf MIPS asm" to construct a value in v0?
-		....
-		....
+	.... big blob of "obf MIPS asm" to construct a value in v0?
+	....
+	....
 
         v6 = strlen(&file_buf) # 0x400d1850
         v7 = (4 * v8 & 252 | v8 % 4) + &g13
@@ -113,11 +117,3 @@ Good. Let's continue :
 
 
 We see a kind of "weird-crc-magickey-xor-sum" algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff on the stack to the v0 register. The decompiler didn't catch anything ...
-
-
-
-Breakpoint 2, 0x00400c80 in main ()
-(gdb) info r $v1
-v1: 0xc2
-(gdb)  info r $v0
-v0: 0xc2

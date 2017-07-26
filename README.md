@@ -25,13 +25,13 @@ Once cleaned a bit, we start to get a clear picture of the execution flow :
     # start of the forked process
 
     .... "obf MIPS asm" part 1 (construct the filename string)
-    .... (not catched by the "decompiler"
+    .... (not catched by the "decompiler")
     ....
 
     ptrace(0) # gdb will not like it
 
     .... "obf MIPS asm" second part
-    .... (not catched by the "decompiler"
+    .... (not catched by the "decompiler")
     ....
 
     file_path = ???????

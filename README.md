@@ -48,6 +48,8 @@ Once cleaned a bit, we start to get a clear picture of the execution flow :
 
 Just before the program fork, there is a huge bloc of asm opcodes that create the filename string.
 
+![create filename string](/obf1.png)
+
 We could have reversed the mips asm or put a breakpoint just after, but as I'm a lazy guy and had kept a debian MIPS qemu image, I decided to do it dynamically :
 
 

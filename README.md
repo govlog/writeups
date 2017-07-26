@@ -46,11 +46,11 @@ Once cleaned a bit, we start to get a clear picture of the execution flow :
         return 1
 ```
 
-Just before the program fork, there is a huge bloc of asm opcodes that create the filename string.
+Just before the program fork, there is a huge bloc of asm opcodes that create the filename string :
 
 ![create filename string](/obf1.png)
 
-We could have reversed the mips asm or put a breakpoint just after, but as I'm a lazy guy and had kept a debian MIPS qemu image, I decided to do it dynamically :
+We could have reversed the mips asm, but as I'm a lazy guy and had kept a debian MIPS qemu image, I decided to do it dynamically :
 
 
 
@@ -120,6 +120,8 @@ Good. Let's continue :
 ```
 
 
-We see a kind of "weird-crc-magickey-xor-sum" algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff on the stack to the v0 register. The decompiler didn't catch anything ...
+We see a kind of "weird-crc-magickey-xor-sum" algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff on the stack to the v0 register. The decompiler didn't catch anything :
+
+![magic key creation ?](/obf2.png)
 
 # Debug it !

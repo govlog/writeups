@@ -48,7 +48,7 @@ Once cleaned a bit, we start to get a clear picture of the execution flow :
 
 Just before the program fork, there is a huge bloc of asm opcodes that create the filename string :
 
-![create filename string](/CTF/labyrenth/mobile/mobile2/obf1.png)
+![create filename string](https://github.com/govlog/writeups/blob/master/obf1.png)
 
 We could have reversed the mips asm, but as I'm a lazy guy and had kept a debian MIPS qemu image, I decided to do it dynamically :
 

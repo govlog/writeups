@@ -122,7 +122,7 @@ Good. Let's continue :
 
 We see a kind of "weird-crc-magickey-xor-sum" algo, in addition to this, looking at the code through IDA, we clearly see that, before the loop, the program is creating a value by adding stuff to the v0 register and doing other arithmetic operation. The decompiler didn't catch anything, and I was too lazy to read docs about MIPS arch :D
 
-![magic key creation ?](/CTF/labyrenth/mobile/mobile2/obf2.png)
+![magic key creation ?](https://github.com/govlog/writeups/blob/master/obf2.png)
 
 
 # Patch it :
@@ -135,7 +135,7 @@ Mips NOPS : http://www.cs.umd.edu/~meesh/cmsc411/mips-pipe/proj-fall11/mips-doc/
 
 First we need to find the call to ptrace in the opcode (easy) :
 
-![magic key creation ?](/CTF/labyrenth/mobile/mobile2/ptrace.png)
+![magic key creation ?](https://github.com/govlog/writeups/blob/master/ptrace.png)
 
 Then need to compile "add 0 0 0" to bytecode using an online MIPS assembler : https://alanhogan.com/asu/assembler.php which give us : 00000020
 
@@ -162,7 +162,7 @@ break *0x00400c80
 
 And here is how it looks like :
 
-![magic key creation ?](/CTF/labyrenth/mobile/mobile2/key_check.png)
+![magic key creation ?](https://github.com/govlog/writeups/blob/master/key_check.png)
 
 
 So by looking at theses two registers, we will be able to extract the key, let's try with the first char of key :
